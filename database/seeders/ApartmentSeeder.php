@@ -22,8 +22,24 @@ class ApartmentSeeder extends Seeder
             if (is_numeric($apartment['floor'])) {
                 $apartment['floor'] = (string) $apartment['floor'];
             }
-            
-            DB::table('apartments')->insert($apartment);
+
+            $newData = [
+                "building" => $apartment['building'],
+                "name" => $apartment['name'],
+                "floor" => $apartment['floor'],
+                "room" => $apartment['room'],
+                "price" => $apartment['price'],
+                "rental" => $apartment['rental'],
+                "surface" => $apartment['surface'],
+                "bedrooms" => $apartment['bedrooms'],
+                "bathrooms" => $apartment['bathrooms'],
+                "reserved" => $apartment['reserved'],
+                "type" => $apartment['type'],
+                "tour" => $apartment['tour'],
+                "side" => $apartment['side']
+            ];
+
+            DB::table('apartments')->insert($newData);
         }
     }
 }

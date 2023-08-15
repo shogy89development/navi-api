@@ -21,7 +21,7 @@ return new class extends Migration
             $table->decimal('rental', 10, 2);
             $table->decimal('surface', 10, 2);
             $table->unsignedInteger('bedrooms')->nullable();
-            $table->boolean('reserver')->default(false);
+            $table->boolean('reserved')->default(false);
             $table->integer('type');
             $table->integer('tour');
             $table->string('side')->nullable();
