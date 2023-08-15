@@ -11,8 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('appartments', function (Blueprint $table) {
+        Schema::create('apartments', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('building');
+            $table->string('name')->nullable();
+            $table->string('floor')->nullable();
+            $table->unsignedInteger('room')->nullable();
+            $table->decimal('price', 10, 2);
+            $table->decimal('rental', 10, 2);
+            $table->decimal('surface', 10, 2);
+            $table->unsignedInteger('bedrooms')->nullable();
+            $table->boolean('reserver')->default(false);
+            $table->integer('type');
+            $table->integer('tour');
+            $table->string('side')->nullable();
             $table->timestamps();
         });
     }
@@ -22,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('appartments');
+        Schema::dropIfExists('apartments');
     }
 };
