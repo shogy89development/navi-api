@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ApartmentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,11 +23,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['middleware' => 'auth:sanctum'], function(){
     //All secure URL's
-    Route::get('apartments', [ApartmentController::class, 'index']);
-    Route::get('apartments/{id}', [ApartmentController::class, 'show']);
     Route::post('apartments', [ApartmentController::class, 'store']);
     Route::put('apartments/{id}', [ApartmentController::class, 'update']);
     Route::delete('apartments/{id}', [ApartmentController::class, 'destroy']);
 });
 
 Route::post('login', [UserController::class, 'login']);
+
+Route::get('apartments', [ApartmentController::class, 'index']);
+Route::get('apartments/{id}', [ApartmentController::class, 'show']);
