@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Apartment;
+use App\Http\Requests\StoreApartmentRequest;
 
 
 class ApartmentController extends Controller
@@ -23,7 +24,7 @@ class ApartmentController extends Controller
         return response()->json(['apartment' => $apartment]);
     }
     
-    public function store(Request $request)
+    public function store(StoreApartmentRequest $request)
     {
         $apartment = Apartment::create($request->all());
         return response()->json(['message' => 'Apartment created', 'apartment' => $apartment], 201);
